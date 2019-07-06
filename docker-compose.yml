@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  adonis:
+    image: hmerin/adonisjs
+    volumes:
+      - .:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
+    environment:
+     ADONIS_SCAFFOLD: "fullstack"
+    ports:
+      - 3333:3333
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - database-data:/var/lib/mysql
+
+volumes:
+  database-data:
+    driver: "local"
