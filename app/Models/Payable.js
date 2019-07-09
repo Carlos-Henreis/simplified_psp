@@ -3,8 +3,6 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-/** @type {import('@adonisjs/framework/src/Hash')} */
-const Hash = use('Hash')
 
 class Payable extends Model {
 
@@ -18,9 +16,13 @@ class Payable extends Model {
    *
    * @return {Object}
    */
-   transaction() {
-     return this.hasMany('App/Models/Transaction');
-   }
+   user () {
+    return this.belongsTo('App/Models/User')
+  }
+
+  transaction(){
+    return this.hasOne('App/Models/Transaction','id','transaction_id');
+  }
 }
 
 module.exports = Payable
