@@ -22,3 +22,11 @@ Route.get('/', () => {
 
 Route.post('/users', 'UserController.create')
 Route.post('/sessions', 'SessionController.create')
+
+Route.resource('transactions', 'TransactionController')
+     .apiOnly()
+     .middleware('auth')
+
+Route.resource('payables', 'PayableController')
+     .apiOnly()
+     .middleware('auth')
