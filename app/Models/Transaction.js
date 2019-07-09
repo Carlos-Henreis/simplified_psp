@@ -4,6 +4,17 @@
 const Model = use('Model')
 
 class Transaction extends Model {
+  static boot () {
+    super.boot()
+
+    /**
+     * A hook to hash the user password before saving
+     * it to the database.
+     */
+     this.addHook('beforeSave', async (transactionInstance) => {
+         transactionInstance.card_number = transactionInstance.card_number.replace(/^(\d{10})(\d{4})$/, "*********$2")
+     })
+  }
 
   /**
    * A relationship in the payable is necessary
@@ -15,9 +26,9 @@ class Transaction extends Model {
    *
    * @return {Object}
    */
-   payable() {
-     return this.hasMany('App/Models/Payable');
-   }
+   user () {
+    return this.belongsTo('App/Models/User')
+  }
 }
 
 module.exports = Transaction

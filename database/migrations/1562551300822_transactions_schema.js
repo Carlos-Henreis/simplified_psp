@@ -7,6 +7,12 @@ class TransactionsSchema extends Schema {
   up () {
     this.create('transactions', (table) => {
       table.increments()
+      table.integer('user_id')
+           .unsigned()
+           .references('id')
+           .inTable('users')
+           .onUpdate('CASCADE')
+           .onDelete('CASCADE')
       table.decimal('value').notNullable()
       table.string('description').notNullable()
       table.enu('payment_method', ['debit_card', 'credit_card']).notNullable()
