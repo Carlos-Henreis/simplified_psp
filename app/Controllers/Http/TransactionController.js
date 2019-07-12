@@ -2,14 +2,20 @@
 const Transaction = use('App/Models/Transaction')
 
 class TransactionController {
-  async index () {
-    const transactions = Transaction.all()
+  async index ({ auth }) {
+    const transactions = await Transaction
+      .query()
+      .where("user_id", "=", auth.user.id)
+      .fetch();
 
     return transactions
   }
 
-  async show ({ params }) {
+  async show ({ params, auth, response }) {
     const transaction = await Transaction.findOrFail(params.id)
+    if (transaction.user_id !== auth.user.id) {
+      return response.status(401).send({ error: 'Not authorized' })
+    }
 
     return transaction
   }

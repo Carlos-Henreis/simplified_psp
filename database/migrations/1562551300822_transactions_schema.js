@@ -18,7 +18,7 @@ class TransactionsSchema extends Schema {
       table.enu('payment_method', ['debit_card', 'credit_card']).notNullable()
       table.string('card_number').notNullable()
       table.string('card_holder').notNullable()
-      table.date('card_expiration_date').notNullable()
+      table.string('card_expiration_date').notNullable()
       table.integer('cvv').notNullable()
       table.timestamps()
     })
