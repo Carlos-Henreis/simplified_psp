@@ -29,6 +29,10 @@ class Transaction extends Model {
    user () {
     return this.belongsTo('App/Models/User')
   }
+
+  payable(){
+    return this.hasOne('App/Models/Payable', "id", "transaction_id");
+  }
 }
 
 module.exports = Transaction

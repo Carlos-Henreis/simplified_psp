@@ -16,13 +16,6 @@ class Payable extends Model {
    *
    * @return {Object}
    */
-   user () {
-    return this.belongsTo('App/Models/User')
-  }
-
-  transaction(){
-    return this.hasOne('App/Models/Transaction','id','transaction_id');
-  }
 }
 
 module.exports = Payable
