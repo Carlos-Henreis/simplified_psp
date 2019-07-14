@@ -30,3 +30,8 @@ Route.resource('transactions', 'TransactionController')
 Route.resource('payables', 'PayableController')
      .apiOnly()
      .middleware('auth')
+
+Route.resource('balance', 'BalanceController')
+     .apiOnly()
+     .middleware('auth')
+
