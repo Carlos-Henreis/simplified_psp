@@ -89,7 +89,7 @@ Todos as requisições para os métodos enumerados abaixo devem ser feitas, adic
 
 # Testes
 
-Para facilitar segue a collection do postman com todos os serviços propostos:
+Para facilitar segue a collection do postman com todos os serviços propostos: [Link](https://www.getpostman.com/collections/1d88214128d9238edc92)
 Além disso o banco foi populado com dois usuários e algumas transações.
 
 Credenciais usuário 1:
