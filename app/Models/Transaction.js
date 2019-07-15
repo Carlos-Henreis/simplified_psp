@@ -12,7 +12,7 @@ class Transaction extends Model {
      * it to the database.
      */
      this.addHook('beforeSave', async (transactionInstance) => {
-         transactionInstance.card_number = transactionInstance.card_number.replace(/^(\d{10})(\d{4})$/, "*********$2")
+         transactionInstance.card_number = transactionInstance.card_number.replace(/^(\d+)(\d{4})$/, "*********$2")
      })
   }
 

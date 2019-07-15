@@ -17,11 +17,12 @@ class TransactionController {
   }
   
   async show ({ params, auth, response }) {
+
+    const transaction = await Transaction.findOrFail(params.id)
+
     if (transaction.user_id !== auth.user.id) {
       return response.status(401).send({ error: 'Not authorized' })
     }
-
-    const transaction = await Transaction.findOrFail(params.id)
 
     await transaction.load("payable")
     return transaction
@@ -39,7 +40,7 @@ class TransactionController {
       'cvv'
     ])
 
-    if (/\d{14}/.test(data.card_number) == false) {
+    if (/\d{14}|\d{15}|\d{16}/.test(data.card_number) == false) {
       return response.status(400).send({ error: 'invalid card format' })
     }
 
