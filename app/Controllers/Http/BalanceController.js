@@ -1,9 +1,6 @@
 'use strict'
-const moment = require('moment');
 
 const Transaction = use('App/Models/Transaction')
-const Payable = use('App/Models/Payable')
-const Fee = use('App/Models/Fee')
 
 class BalanceController {
     async index ({ auth, response }) {
