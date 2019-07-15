@@ -22,4 +22,4 @@ migrate:
 	docker-compose exec --user=${USER} adonis adonis migration:run
 
 seed:
-	docker-compose exec --user=${USER} adonis adonis seed
+	docker-compose exec --user=${USER} adonis adonis seed --files='FeeSeeder.js, UserSeeder.js'
