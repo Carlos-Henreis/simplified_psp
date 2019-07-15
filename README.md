@@ -40,6 +40,7 @@ Ao fim da execução é possível consumir os serviços a partir de: http://0.0.
 ## Usuário e autenticação
 
 1. **Criar usuário**
+    
     Serviço necessário para crição de um novo usuário (cliente)
     * Rota `/users`
     * Método: post
@@ -49,6 +50,7 @@ Ao fim da execução é possível consumir os serviços a partir de: http://0.0.
         * password 
 
 2. **Autenticação**
+    
     Prove uma sessão autenticada para o usuário
     * Rota `/sessions`
     * Método: post
@@ -61,6 +63,7 @@ Ao fim da execução é possível consumir os serviços a partir de: http://0.0.
 Todos as requisições para os métodos enumerados abaixo devem ser feitas, adicionando no HEADER a composição `'Authorization' : 'Bearer ' + token` (sendo este o token gerado conforme descrição anterior)
 
 1. **Criar uma transação**
+    
     Permite a criação de uma nova trasação
     * Rota `/transactions`
     * Método: post
@@ -73,16 +76,19 @@ Todos as requisições para os métodos enumerados abaixo devem ser feitas, adic
         * card_expiration_date
         * cvv
 2. **Listar todas as transações**
+    
     Lista todas as transações de um cliente espesifíco
     * Rota `/transactions`
     * Método: get
 
 3. **Consultar uma transação**
+    
     Consulta uma transação do cliente espesifíco, a partir de seu id
     * Rota `/transactions/id`
     * Método: get
 
 4. **Consultar saldo**
+    
     Consulta o saldo de um cliente
     * Rota `/transactions/id`
     * Método: get
@@ -90,6 +96,7 @@ Todos as requisições para os métodos enumerados abaixo devem ser feitas, adic
 # Testes
 
 Para facilitar segue a collection do postman com todos os serviços propostos: [Link](https://www.getpostman.com/collections/1d88214128d9238edc92)
+
 Além disso o banco foi populado com dois usuários e algumas transações.
 
 Credenciais usuário 1:
