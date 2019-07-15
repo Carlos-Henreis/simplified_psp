@@ -19,3 +19,19 @@ const Route = use('Route')
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
+
+Route.post('/users', 'UserController.create')
+Route.post('/sessions', 'SessionController.create')
+
+Route.resource('transactions', 'TransactionController')
+     .apiOnly()
+     .middleware('auth')
+
+Route.resource('payables', 'PayableController')
+     .apiOnly()
+     .middleware('auth')
+
+Route.resource('balance', 'BalanceController')
+     .apiOnly()
+     .middleware('auth')
+
